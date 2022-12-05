@@ -1,0 +1,164 @@
+IP : 192.168.56.103
+
+Ports :
+  21  FTP
+  22  SSH
+  80  HTTP (Apache)
+  143 IMAP (Dovecot)
+  443 HTTPS (Apache)
+  993 IMAPS (?)
+
+
+
+❯ nmap 192.168.56.103 -sC
+Starting Nmap 7.80 ( https://nmap.org ) at 2022-12-04 15:28 CET
+Nmap scan report for 192.168.56.103
+Host is up (0.000054s latency).
+Not shown: 994 closed ports
+PORT    STATE SERVICE
+21/tcp  open  ftp
+|_ftp-anon: got code 500 "OOPS: vsftpd: refusing to run with writable root inside chroot()".
+22/tcp  open  ssh
+| ssh-hostkey: 
+|   1024 07:bf:02:20:f0:8a:c8:48:1e:fc:41:ae:a4:46:fa:25 (DSA)
+|   2048 26:dd:80:a3:df:c4:4b:53:1e:53:42:46:ef:6e:30:b2 (RSA)
+|_  256 cf:c3:8c:31:d7:47:7c:84:e2:d2:16:31:b2:8e:63:a7 (ECDSA)
+80/tcp  open  http
+|_http-title: Hack me if you can
+143/tcp open  imap
+|_imap-capabilities: SASL-IR STARTTLS post-login LOGINDISABLEDA0001 OK have more listed capabilities ENABLE IMAP4rev1 ID LITERAL+ LOGIN-REFERRALS Pre-login IDLE
+|_ssl-date: 2022-12-04T14:28:22+00:00; -1s from scanner time.
+443/tcp open  https
+|_http-title: 404 Not Found
+| ssl-cert: Subject: commonName=BornToSec
+| Not valid before: 2015-10-08T00:19:46
+|_Not valid after:  2025-10-05T00:19:46
+|_ssl-date: 2022-12-04T14:28:19+00:00; -2s from scanner time.
+993/tcp open  imaps
+|_ssl-date: 2022-12-04T14:28:19+00:00; -2s from scanner time.
+
+Host script results:
+|_clock-skew: mean: -1s, deviation: 0s, median: -2s
+
+Nmap done: 1 IP address (1 host up) scanned in 67.75 seconds
+
+
+
+
+❯ nmap 192.168.56.103 -sV
+Starting Nmap 7.80 ( https://nmap.org ) at 2022-12-04 15:20 CET
+Nmap scan report for 192.168.56.103
+Host is up (0.000069s latency).
+Not shown: 994 closed ports
+PORT    STATE SERVICE    VERSION
+21/tcp  open  ftp        vsftpd 2.0.8 or later
+22/tcp  open  ssh        OpenSSH 5.9p1 Debian 5ubuntu1.7 (Ubuntu Linux; protocol 2.0)
+80/tcp  open  http       Apache httpd 2.2.22 ((Ubuntu))
+143/tcp open  imap       Dovecot imapd
+443/tcp open  ssl/http   Apache httpd 2.2.22
+993/tcp open  ssl/imaps?
+Service Info: Host: 127.0.1.1; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 14.47 seconds
+
+
+
+
+❯ nmap -p22 192.168.56.103 --script ssh2-enum-algos
+Starting Nmap 7.80 ( https://nmap.org ) at 2022-12-04 15:29 CET
+Nmap scan report for 192.168.56.103
+Host is up (0.00013s latency).
+
+PORT   STATE SERVICE
+22/tcp open  ssh
+| ssh2-enum-algos: 
+|   kex_algorithms: (7)
+|       ecdh-sha2-nistp256
+|       ecdh-sha2-nistp384
+|       ecdh-sha2-nistp521
+|       diffie-hellman-group-exchange-sha256
+|       diffie-hellman-group-exchange-sha1
+|       diffie-hellman-group14-sha1
+|       diffie-hellman-group1-sha1
+|   server_host_key_algorithms: (3)
+|       ssh-rsa
+|       ssh-dss
+|       ecdsa-sha2-nistp256
+|   encryption_algorithms: (13)
+|       aes128-ctr
+|       aes192-ctr
+|       aes256-ctr
+|       arcfour256
+|       arcfour128
+|       aes128-cbc
+|       3des-cbc
+|       blowfish-cbc
+|       cast128-cbc
+|       aes192-cbc
+|       aes256-cbc
+|       arcfour
+|       rijndael-cbc@lysator.liu.se
+|   mac_algorithms: (11)
+|       hmac-md5
+|       hmac-sha1
+|       umac-64@openssh.com
+|       hmac-sha2-256
+|       hmac-sha2-256-96
+|       hmac-sha2-512
+|       hmac-sha2-512-96
+|       hmac-ripemd160
+|       hmac-ripemd160@openssh.com
+|       hmac-sha1-96
+|       hmac-md5-96
+|   compression_algorithms: (2)
+|       none
+|_      zlib@openssh.com
+
+Nmap done: 1 IP address (1 host up) scanned in 0.13 seconds
+
+
+
+
+❯ nmap -p22 192.168.56.103 --script ssh-hostkey --script-args ssh_hostkey=full
+Starting Nmap 7.80 ( https://nmap.org ) at 2022-12-04 15:35 CET
+Nmap scan report for 192.168.56.103
+Host is up (0.00022s latency).
+
+PORT   STATE SERVICE
+22/tcp open  ssh
+| ssh-hostkey: 
+|   ssh-dss AAAAB3NzaC1kc3MAAACBANy4kCYLoBAylTLMh64JVr40/F9bciwyI6xUYNGxwUcQSZO4isexdm9EmOGxstbAs2Hcfq9JssaCGBX/gAENQ6+0fI7AYhM2H0UmzITyd/xd8LYljaLeE6qIyfM/1Enjbl04FMsK4FvYr94Dz2ucWLraIrv+mKO8kqN8nR5CXbpxAAAAFQDjJ8bghJac5CEvsPfVXq41Zq03lwAAAIB03IhWaPcHl5FLycI6/jhANgwyk5sIRPmAy2BoQ0pGnZjEaRIz5XRW7uNM4WScbZ6J9Ztk48KDqS/RaWpHzOxolx3xfIaoOJeNv8SyUPleK/+JcJTSX8hVsijQ91W+U9GiMPGlZLWy5uzDt+v4Pfagor7KQuMR7RDMA/CASfwYUAAAAIAL6FIxFwQFgzpslh0KjjKCeZ7EFTrbdIzp8NDGzfA9zXb/znT67oAClH6sVZCjqPQHwE/+4FIw0ek5Bec8fEXuqUDWQvkePUaKaMVnN2SnTMB1TG2I5UbrigrEFMudWzqVZBdb1eH44UrdPhDC3HR94pmM7ppL82elMAqK4XSNgQ==
+|   ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC4oEueIHc1nDjKzt/MI7Wz8sQi13IZQZuG6FtaK6aBxkTztoBLLqSitQ6y2zB+kEdc9BJTCU2utolXic/JfcBwWJyMi0JDBAXdgctpx4JB731cxHntCldMMOlDdaw57GfdXQVqJLC0ev8o6ADqJCK3tgcP9lJKrbVVS+LmnoCqQaSk32LPGRTPJrYbL3rie6KrTgXmkiWqRRqMYrkp8MiVRSbsN1Hy76km1lt/uh3srXkhM7YLdUp3efVOr2GO2301asEAJK/WAGZHIb5V8R6Qj7LB54v/n62coexOJKq77q6fLB5cgaHdt3nBJWC6Z4aLf66CsvwP6tUsgO7XcD9n
+|_  ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBOJYMfb3+o/QgTjgRIduPs2JRTkRb1ZPY/42VUqM8ZI60YVcWEmryGbRyB5tkGCDrb8465YO0SzAfJSWSJfoLxQ=
+
+Nmap done: 1 IP address (1 host up) scanned in 0.17 seconds
+
+
+
+
+❯ curl --http0.9 192.168.56.103:443
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>400 Bad Request</title>
+</head><body>
+<h1>Bad Request</h1>
+<p>Your browser sent a request that this server could not understand.<br />
+Reason: You're speaking plain HTTP to an SSL-enabled server port.<br />
+Instead use the HTTPS scheme to access this URL, please.<br />
+<blockquote>Hint: <a href="https://127.0.1.1/"><b>https://127.0.1.1/</b></a></blockquote></p>
+<hr>
+<address>Apache/2.2.22 (Ubuntu) Server at 127.0.1.1 Port 443</address>
+</body></html>
+
+
+
+
+❯ openssl s_client -connect 192.168.56.103:993 -quiet
+Can't use SSL_get_servername
+depth=0 O = Dovecot mail server, OU = localhost, CN = localhost, emailAddress = root@mail.borntosec.net
+verify error:num=18:self-signed certificate
+verify return:1
+depth=0 O = Dovecot mail server, OU = localhost, CN = localhost, emailAddress = root@mail.borntosec.net
+verify return:1
+4017C28F4A7F0000:error:0A00018A:SSL routines:tls_process_ske_dhe:dh key too small:../ssl/statem/statem_clnt.c:2086:

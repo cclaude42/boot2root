@@ -1,0 +1,8 @@
+# SSH
+https://book.hacktricks.xyz/network-services-pentesting/pentesting-ssh
+https://book.hacktricks.xyz/network-services-pentesting/pentesting-imap
+
+https://github.com/rapid7/ssh-badkeys/tree/master/authorized
+https://github.com/danielmiessler/SecLists/blob/master/Passwords/Default-Credentials/ftp-betterdefaultpasslist.txt
+
+https://owasp.org/Top10/

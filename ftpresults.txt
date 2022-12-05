@@ -1,0 +1,197 @@
+anonymous:anonymous
+OOPS: vsftpd: refusing to run with writable root inside chroot()
+OOPS: priv_sock_get_cmd
+
+root:rootpasswd
+Login incorrect.
+
+root:12hrs37
+Login incorrect.
+
+ftp:b1uRR3
+OOPS: vsftpd: refusing to run with writable root inside chroot()
+OOPS: priv_sock_get_cmd
+
+admin:admin
+Login incorrect.
+
+localadmin:localadmin
+Login incorrect.
+
+admin:1234
+Login incorrect.
+
+apc:apc
+Login incorrect.
+
+admin:nas
+Login incorrect.
+
+Root:wago
+Login incorrect.
+
+Admin:wago
+Login incorrect.
+
+User:user
+Login incorrect.
+
+Guest:guest
+Login incorrect.
+
+ftp:ftp
+OOPS: vsftpd: refusing to run with writable root inside chroot()
+OOPS: priv_sock_get_cmd
+
+admin:password
+Login incorrect.
+
+a:avery
+Login incorrect.
+
+admin:123456
+Login incorrect.
+
+adtec:none
+Login incorrect.
+
+admin:admin12345
+Login incorrect.
+
+none:dpstelecom
+Login incorrect.
+
+instrument:instrument
+Login incorrect.
+
+user:password
+Login incorrect.
+
+root:password
+Login incorrect.
+
+default:default
+Login incorrect.
+
+admin:default
+Login incorrect.
+
+nmt:1234
+Login incorrect.
+
+admin:Janitza
+Login incorrect.
+
+supervisor:supervisor
+Login incorrect.
+
+user1:pass1
+Login incorrect.
+
+avery:avery
+Login incorrect.
+
+IEIeMerge:eMerge
+Login incorrect.
+
+ADMIN:12345
+Login incorrect.
+
+beijer:beijer
+Login incorrect.
+
+Admin:admin
+Login incorrect.
+
+admin:1234
+Login incorrect.
+
+admin:1111
+Login incorrect.
+
+root:admin
+Login incorrect.
+
+se:1234
+Login incorrect.
+
+admin:stingray
+Login incorrect.
+
+device:apc
+Login incorrect.
+
+apc:apc
+Login incorrect.
+
+dm:ftp
+Login incorrect.
+
+dmftp:ftp
+Login incorrect.
+
+httpadmin:fhttpadmin
+Login incorrect.
+
+user:system
+Login incorrect.
+
+MELSEC:MELSEC
+Login incorrect.
+
+QNUDECPU:QNUDECPU
+Login incorrect.
+
+ftp_boot:ftp_boot
+Login incorrect.
+
+uploader:ZYPCOM
+Login incorrect.
+
+ftpuser:password
+Login incorrect.
+
+USER:USER
+Login incorrect.
+
+qbf77101:hexakisoctahedron
+Login incorrect.
+
+ntpupdate:ntpupdate
+Login incorrect.
+
+sysdiag:factorycast@schneider
+
+wsupgrade:wsupgrade
+Login incorrect.
+
+pcfactory:pcfactory
+Login incorrect.
+
+loader:fwdownload
+Login incorrect.
+
+test:testingpw
+Login incorrect.
+
+webserver:webpages
+Login incorrect.
+
+fdrusers:sresurdf
+Login incorrect.
+
+nic2212:poiuypoiuy
+Login incorrect.
+
+user:user00
+Login incorrect.
+
+su:ko2003wa
+Login incorrect.
+
+MayGion:maygion.com
+Login incorrect.
+
+admin:9999
+Login incorrect.
+
