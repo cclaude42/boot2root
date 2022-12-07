@@ -162,3 +162,79 @@ verify return:1
 depth=0 O = Dovecot mail server, OU = localhost, CN = localhost, emailAddress = root@mail.borntosec.net
 verify return:1
 4017C28F4A7F0000:error:0A00018A:SSL routines:tls_process_ske_dhe:dh key too small:../ssl/statem/statem_clnt.c:2086:
+
+
+
+
+❯ python3 dirsearch.py -u https://192.168.56.103/
+
+  _|. _ _  _  _  _ _|_    v0.4.3
+ (_||| _) (/_(_|| (_| )
+
+Extensions: php, aspx, jsp, html, js | HTTP method: GET | Threads: 25 | Wordlist size: 11592
+
+Output: /home/cclaude/Desktop/dirsearch/reports/_192.168.56.103/_22-12-06_17-30-50.txt
+
+Target: https://192.168.56.103/
+
+[17:30:50] Starting: 
+[17:32:15] 403 -  243B  - /cgi-bin/
+[17:32:44] 301 -  251B  - /forum  ->  https://192.168.56.103/forum/
+[17:32:44] 200 -    2KB - /forum/
+[17:33:29] 301 -  255B  - /phpmyadmin  ->  https://192.168.56.103/phpmyadmin/
+[17:33:32] 200 -    2KB - /phpmyadmin/
+[17:33:33] 200 -    2KB - /phpmyadmin/index.php
+[17:33:48] 403 -  242B  - /server-status/
+[17:33:48] 403 -  242B  - /server-status
+[17:34:22] 301 -  252B  - /webmail  ->  https://192.168.56.103/webmail/
+[17:34:22] 403 -  256B  - /webmail/src/configtest.php
+
+Task Completed
+
+
+
+
+❯ python3 dirsearch.py -u http://192.168.56.103/
+
+  _|. _ _  _  _  _ _|_    v0.4.3
+ (_||| _) (/_(_|| (_| )
+
+Extensions: php, aspx, jsp, html, js | HTTP method: GET | Threads: 25 | Wordlist size: 11592
+
+Output: /home/cclaude/Desktop/dirsearch/reports/http_192.168.56.103/__22-12-06_17-34-46.txt
+
+Target: http://192.168.56.103/
+
+[17:34:46] Starting: 
+[17:34:56] 403 -  244B  - /.ht_wsr.txt
+[17:34:56] 403 -  243B  - /.htaccess.bak1
+[17:34:57] 403 -  243B  - /.htaccess.orig
+[17:34:57] 403 -  244B  - /.htaccess.sample
+[17:34:57] 403 -  242B  - /.htaccess.save
+[17:34:57] 403 -  245B  - /.htaccess_extra
+[17:34:57] 403 -  243B  - /.htaccess_sc
+[17:34:57] 403 -  243B  - /.htaccessBAK
+[17:34:57] 403 -  242B  - /.htaccessOLD
+[17:34:57] 403 -  238B  - /.htm
+[17:34:57] 403 -  244B  - /.htaccess_orig
+[17:34:57] 403 -  239B  - /.html
+[17:34:57] 403 -  243B  - /.htaccessOLD2
+[17:34:57] 403 -  242B  - /.htpasswds
+[17:34:57] 403 -  245B  - /.htpasswd_test
+[17:34:57] 403 -  242B  - /.httr-oauth
+[17:36:12] 403 -  242B  - /cgi-bin/
+[17:36:30] 403 -  238B  - /doc/
+[17:36:30] 403 -  241B  - /doc/api/
+[17:36:30] 403 -  248B  - /doc/en/changes.html
+[17:36:30] 403 -  246B  - /doc/html/index.html
+[17:36:30] 403 -  245B  - /doc/stable.version
+[17:36:41] 301 -  249B  - /fonts  ->  http://192.168.56.103/fonts/
+[17:36:41] 403 -  240B  - /forum
+[17:36:42] 403 -  244B  - /forum/admin/
+[17:36:42] 403 -  240B  - /forum/
+[17:36:42] 403 -  248B  - /forum/phpmyadmin/
+[17:36:41] 403 -  250B  - /forum/install/install.php
+[17:37:44] 403 -  242B  - /server-status/
+[17:37:44] 403 -  241B  - /server-status
+
+Task Completed
